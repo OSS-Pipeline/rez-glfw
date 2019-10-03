@@ -38,7 +38,12 @@ echo -e "\n"
 mkdir -p ${BUILD_PATH}
 cd ${BUILD_PATH}
 
-cmake ${BUILD_PATH}/.. -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC -DBUILD_SHARED_LIBS=ON
+cmake \
+    ${BUILD_PATH}/.. \
+    -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} \
+    -DCMAKE_C_FLAGS=-fPIC \
+    -DCMAKE_CXX_FLAGS=-fPIC \
+    -DBUILD_SHARED_LIBS=ON
 
 echo -e "\n"
 echo -e "[CONFIGURE] Finished configuring GLFW-${GLFW_VERSION}!"
