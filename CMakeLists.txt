@@ -4,19 +4,10 @@ include(RezBuild)
 include(RezRepository)
 include(ExternalProject)
 
-# We split the GLFW version string in multiple ones.
-string(REPLACE "." ";" GLFW_VERSION_LIST ${REZ_BUILD_PROJECT_VERSION})
-list(GET GLFW_VERSION_LIST 0 GLFW_VERSION_MAJOR)
-list(GET GLFW_VERSION_LIST 1 GLFW_VERSION_MINOR)
-list(GET GLFW_VERSION_LIST 2 GLFW_VERSION_PATCH)
-
-# We create a version of PySide2 to make it match with the one in the archive name.
-set(GLFW_ARCHIVE_VERSION "${GLFW_VERSION_MAJOR}.${GLFW_VERSION_MINOR}")
-
 # GLFW
 rez_set_archive(
-    GLFW_URL glfw/glfw-${GLFW_ARCHIVE_VERSION}.tar.gz
-    https://github.com/glfw/glfw/archive/${GLFW_ARCHIVE_VERSION}.tar.gz
+    GLFW_URL glfw/glfw-${REZ_BUILD_PROJECT_VERSION}.tar.gz
+    https://github.com/glfw/glfw/archive/${REZ_BUILD_PROJECT_VERSION}.tar.gz
 )
 
 # The environment variable REZ_TMP_PATH is meant to point to a location such as "/tmp/rez".
